@@ -49,21 +49,6 @@ Camera → YOLO → pose/behavior logic → zone logic → alerts + logging
 - **Risk forecast** – Aggregated near-zone behavior to highlight active explorers.
 - **Movement trends** – Altair chart of kid speed over time (filter per kid).
 
-## Setup
-
-```bash
-git clone https://github.com/YOUR-ORG/smart-guardian-mvp.git
-cd smart-guardian-mvp
-python3 -m venv .venv311 && source .venv311/bin/activate
-pip install -r requirements.txt
-cp .env.example .env   # set camera, Brevo, LLM API keys if desired
-uvicorn app.main:app --reload
-streamlit run ui/activation_app.py
-```
-
-- Access FastAPI at `http://localhost:8000` (`/video`, `/snapshot`, `/alerts`).
-- Streamlit console at `http://localhost:8501`.
-
 ## Environment Variables / Config Files
 
 - `.env`: `RTSP_URL`, `CAMERA_ID`, `ALERT_VOICE`, `OPENAI_API_KEY`, `GOOGLE_API_KEY`.
@@ -80,13 +65,37 @@ streamlit run ui/activation_app.py
 - Weekly PDF/email reports.
 - Containerized deployment + Raspberry Pi optimizations.
 
-## Showcase Ideas
 
-- GIF or short video highlighting:
-  - Drawing zones / auto-scan.
-  - Skeleton + name overlay.
-  - Voice alert + email screenshot.
-  - Activity dashboard with risk forecast.
+## 📸 Screenshots
+*(Replace with your actual screenshots or demo video links)*  
+![demo](https://via.placeholder.com/800x400?text=API+Demo+Screenshot)
+
+
+## 📬 Request Access to Code
+To access the private code repository for learning:  
+👉 [Fill this form](https://docs.google.com/forms/d/e/1FAIpQLSdatf3kB36Tg9pElqB4yf2ZmVKVA89iWsyAMHTKnUkZ55mVWg/viewform?usp=dialog)  
+📧 Please include your **GitHub username**.
+
+Access is given **manually** for learning purposes only.  
+
+
+
+## ⚖️ License & Usage
+- Shared for **educational, non-commercial use only**.  
+- Redistribution of this code or models is **not allowed**.  
+- Please cite “YourName Labs” if you use parts of this code in research or teaching.  
+
+
+
+## 💬 Questions?
+- Open a **Discussion** in this repo.  
+- Or email me at **jose.pariyani@gmail.com**.
+
+---
+
+> 🔗 Visit [varun Labs Portal](https://varun-labs.github.io/) for more projects and access links.
+
+
 
 ## License
 
