@@ -1,4 +1,4 @@
-# 🧠 Smart Guardian MVP
+# 🧠 Smart Guardian AI
 
 **Smart Guardian** is an AI-first safety assistant for households and childcare centers.  
 It monitors live camera feeds, identifies enrolled kids, overlays adaptive hazard zones, and proactively alerts caregivers (via voice or email) when a child nears danger or exhibits risky behavior.
