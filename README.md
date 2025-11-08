@@ -1,106 +1,133 @@
- Smart Guardian MVP
+# 🧠 Smart Guardian MVP
 
-Smart Guardian is an AI-first safety assistant for households and childcare centers. It watches a live camera stream, identifies enrolled kids, overlays adaptive hazard zones, and proactively alerts caregivers (voice, email) when a child gets too close to danger or adopts a risky posture.
+**Smart Guardian** is an AI-first safety assistant for households and childcare centers.  
+It monitors live camera feeds, identifies enrolled kids, overlays adaptive hazard zones, and proactively alerts caregivers (via voice or email) when a child nears danger or exhibits risky behavior.
 
-## Why Smart Guardian?
+---
 
-- **Proactive safety** – Combines YOLO detection, Mediapipe pose analysis, and behavior forecasting to warn *before* an accident.
-- **Kid-aware** – Facial embedding + enrollment workflow lets Smart Guardian call out children by name.
-- **Human-in-the-loop** – Streamlit UI for drawing zones, autoscan suggestions, camera switching, and alert/channel settings.
-- **Edge-ready** – Runs locally (desktop, Docker, Raspberry Pi) with no cloud dependency except optional LLM scans or Brevo email.
+## 🌟 Why Smart Guardian?
 
-## Architecture & Tech Stack
+- **Proactive Safety** – Combines YOLO detection, Mediapipe pose analysis, and behavior forecasting to warn *before* accidents occur.  
+- **Kid-Aware Recognition** – Facial embedding and enrollment workflow enable Smart Guardian to call out each child by name.  
+- **Human-in-the-Loop Design** – A Streamlit interface allows caregivers to draw hazard zones, auto-scan environments, switch cameras, and manage alerts.  
+- **Edge-Ready Deployment** – Runs locally (desktop, Docker, or Raspberry Pi) with no cloud dependency, except optional LLM scans or Brevo email alerts.
 
-| Layer | Tech |
-| --- | --- |
-| Live inference | YOLOv8 + Mediapipe Pose (PyTorch/OpenCV) |
-| Hazard AI | Gemini / OpenAI vision prompt for zone suggestions |
-| Backend | FastAPI, SQLite, asyncio camera loop |
-| UI | Streamlit console (zones, activity dashboard, settings) |
+---
+
+## 🧱 Architecture & Tech Stack
+
+| Layer | Technology |
+|-------|-------------|
+| Live Inference | YOLOv8 + Mediapipe Pose (PyTorch, OpenCV) |
+| Hazard AI | Gemini / OpenAI Vision Prompts for zone suggestions |
+| Backend | FastAPI + SQLite + asyncio camera loop |
+| User Interface | Streamlit console (zones, analytics, settings) |
 | Notifications | macOS `say` TTS + Brevo email alerts |
 | Analytics | Altair + Pandas (movement trends, risk forecasts) |
 
+**System Flow:**  
 ```
-Camera → YOLO → pose/behavior logic → zone logic → alerts + logging
+Camera → YOLO → Pose/Behavior Logic → Zone Logic → Alerts + Logging
               ↓                        ↑
-         Streamlit UI (zones, LLM scans, settings, analytics)
+        Streamlit UI (zones, LLM scans, settings, analytics)
 ```
 
-## Key Features
+---
 
-- **Real-time video overlay**: Hazard polygons, YOLO boxes, skeletons, kid names.
-- **Kid enrollment & recognition**: Upload/capture photo, crop, embed, face-match per frame.
-- **Adaptive zones**:
-  - Manual drawing on live frame.
-  - Object-detection suggestions (auto-scan).
-  - Gemini / OpenAI prompt-based scan (“Ask AI hazard scan”).
-- **Alerting**:
-  - Voice alerts via `say` (configurable voice).
-  - Email notifications via Brevo (enable/disable, stored credentials).
-  - Cooldown logic prevents spam.
-- **Behavior analytics**:
-  - Event-based tracking (position, speed, hazard distance).
-  - Risk forecast cards (Low/Medium/High per kid).
-  - Trend chart with kid filter, CSV-ready data via SQLite.
+## ⚙️ Key Features
 
-## Activity Dashboard Highlights
+### 🎥 Real-Time Video Overlay  
+- Displays hazard polygons, YOLO bounding boxes, skeletons, and recognized kid names.  
 
-- **Summary table** – Events, average speed, last seen per kid.
-- **Risk forecast** – Aggregated near-zone behavior to highlight active explorers.
-- **Movement trends** – Altair chart of kid speed over time (filter per kid).
+### 🧒 Kid Enrollment & Recognition  
+- Upload or capture photo → crop → embed → face-match per frame.  
 
-## Environment Variables / Config Files
+### 🧭 Adaptive Hazard Zones  
+- Draw zones manually on live frames.  
+- Auto-scan suggestions using object detection.  
+- AI-based hazard scan via Gemini/OpenAI prompts (“Ask AI hazard scan”).  
 
-- `.env`: `RTSP_URL`, `CAMERA_ID`, `ALERT_VOICE`, `OPENAI_API_KEY`, `GOOGLE_API_KEY`.
-- `configs/camera.json`: current camera source.
-- `configs/zones.json`: saved hazard polygons.
-- `configs/alerts.json`: Brevo credentials (`enabled` flag).
-- `configs/llm.json`: LLM provider + API keys/models.
-- `database/smart_guardian.db`: local SQLite (ignored in Git).
+### 🔔 Alerting System  
+- Voice alerts via macOS `say` (configurable voice).  
+- Email alerts via Brevo (enable/disable, stored credentials).  
+- Built-in cooldown logic prevents alert spam.  
 
-## Roadmap
+### 📊 Behavior Analytics  
+- Event-based tracking (position, speed, hazard distance).  
+- Risk forecast cards (Low/Medium/High per child).  
+- Altair charts showing speed and proximity trends, exportable to CSV via SQLite.
 
-- Multi-channel alerts (SMS, push, MQTT).
-- Autonomous semantic re-mapping of rooms.
-- Weekly PDF/email reports.
-- Containerized deployment + Raspberry Pi optimizations.
+---
 
+## 📈 Activity Dashboard Highlights
+
+- **Summary Table** – Event logs, average speed, last seen per child.  
+- **Risk Forecast** – Aggregated near-zone behavior highlighting active explorers.  
+- **Movement Trends** – Altair chart visualizing kid speed over time with filters.
+
+---
+
+## ⚙️ Configuration & Environment
+
+| File | Purpose |
+|------|----------|
+| `.env` | `RTSP_URL`, `CAMERA_ID`, `ALERT_VOICE`, `OPENAI_API_KEY`, `GOOGLE_API_KEY` |
+| `configs/camera.json` | Current camera source |
+| `configs/zones.json` | Saved hazard polygons |
+| `configs/alerts.json` | Brevo credentials + enable flag |
+| `configs/llm.json` | LLM provider & API model keys |
+| `database/smart_guardian.db` | Local SQLite database *(ignored in .git)* |
+
+---
+
+## 🧭 Roadmap
+
+- 📱 Multi-channel alerts (SMS, push, MQTT)  
+- 🗺️ Autonomous semantic room mapping  
+- 📅 Weekly PDF/email safety reports  
+- 🐳 Containerized deployment with Raspberry Pi optimizations  
+
+---
 
 ## 📸 Screenshots
-*(Replace with your actual screenshots or demo video links)*  
-![demo](https://via.placeholder.com/800x400?text=API+Demo+Screenshot)
 
+*(Replace with actual screenshots or demo videos)*  
+![Smart Guardian Demo](https://via.placeholder.com/800x400?text=Smart+Guardian+Demo)
+
+---
 
 ## 📬 Request Access to Code
-To access the private code repository for learning:  
-👉 [Fill this form](https://docs.google.com/forms/d/e/1FAIpQLSdatf3kB36Tg9pElqB4yf2ZmVKVA89iWsyAMHTKnUkZ55mVWg/viewform?usp=dialog)  
-📧 Please include your **GitHub username**.
 
-Access is given **manually** for learning purposes only.  
+To access the **private code repository** for educational or research use:  
+👉 [**Fill this form**](https://docs.google.com/forms/d/e/1FAIpQLSdatf3kB36Tg9pElqB4yf2ZmVKVA89iWsyAMHTKnUkZ55mVWg/viewform?usp=dialog)  
+📧 Please include your **GitHub username** when submitting.  
 
+Access is granted **manually** for learning purposes only.  
 
+---
 
 ## ⚖️ License & Usage
-- Shared for **educational, non-commercial use only**.  
-- Redistribution of this code or models is **not allowed**.  
-- Please cite “YourName Labs” if you use parts of this code in research or teaching.  
 
-
-
-## 💬 Questions?
-- Open a **Discussion** in this repo.  
-- Or email me at **jose.pariyani@gmail.com**.
+- Shared for **educational, non-commercial purposes only**.  
+- Redistribution of this code or models is **not permitted**.  
+- Please credit **Varun Labs** if you use or reference this work in research, teaching, or derivative projects.
 
 ---
 
-> 🔗 Visit [varun Labs Portal](https://varun-labs.github.io/) for more projects and access links.
+## 💬 Questions & Support
 
-
-
-## License
-
-MIT (or your choice)
+- Open a **Discussion** in this repository for questions or suggestions.  
+- Or reach me at **jose.pariyani@gmail.com**.
 
 ---
 
-Made with ❤️ to keep curious kids safer through transparent AI.
+> 🔗 Explore more projects at [**Varun Labs Portal**](https://github.com/varun-labs)  
+
+---
+
+### 🪪 License
+**MIT License** *(or your preferred license)*  
+
+---
+
+Made with ❤️ to keep curious kids safer through transparent, real-time AI.
