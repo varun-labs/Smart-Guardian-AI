@@ -130,4 +130,4 @@ Access is granted **manually** for learning purposes only.
 
 ---
 
-Made with ❤️ to keep curious kids safer through transparent, real-time AI.
+Made with ❤️ to keep curious kids safer.
