@@ -1,4 +1,4 @@
-![Smart Guardian Banner](assets/smart-g-image.png)
+![Smart Guardian Banner](assets/banner.png)
 
 # 🧠 Smart Guardian AI
 
