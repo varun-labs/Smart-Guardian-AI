@@ -1,3 +1,5 @@
+![Smart Guardian Banner](assets/banner.png)
+
 # 🧠 Smart Guardian AI
 
 **Smart Guardian** is an AI-first safety assistant for households and childcare centers.  
